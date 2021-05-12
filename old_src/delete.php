@@ -1,0 +1,15 @@
+<?php
+
+declare (strict_types=1);
+
+$pdo = require 'conexao.php';
+$sql = 'delete from produtos where id = ?';
+
+$prepare = $pdo->prepare($sql);
+
+$prepare->bindParam(1,$_GET['id']);
+$prepare->execute();
+
+echo $prepare->rowCount();
+?>
+<title>Delete</title>
